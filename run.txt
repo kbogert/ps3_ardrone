@@ -1,0 +1,5 @@
+
+sudo bash
+rosrun ps3joy ps3joy.py
+sudo chmod a+rw /dev/input/js0
+roslaunch ps3_ardrone ps3_ardrone.launch

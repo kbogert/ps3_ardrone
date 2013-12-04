@@ -1,0 +1,27 @@
+<launch>
+
+ <include file="$(find ardrone_autonomy)/launch/ardrone.launch" /> 
+
+ <include file="$(find ps3joy)/launch/ps3.launch" />    
+
+
+  <node pkg="ps3_ardrone" type="ps3_ardrone" name="ps3_ardrone">
+	<param name="deadzone" value="0.0"/>
+	<param name="x_axis" value="3"/>
+	<param name="y_axis" value="2"/>
+	<param name="z_axis1" value="9"/>
+	<param name="z_axis2" value="8"/>
+	<param name="theta_axis" value="0"/>
+	<param name="but_takeoff" value="3"/>
+	<param name="but_trim" value="0"/>
+	<param name="but_ctrl_scheme" value="12"/>
+	<param name="but_switch_cam" value="13"/>
+	<param name="but_speed_up" value="4"/>
+	<param name="but_speed_down" value="6"/>
+  </node>
+
+  <node pkg="image_view" type="image_view" name="ardrone_camera">
+	<remap from="image" to="/ardrone/image_raw"/>
+  </node>
+
+</launch>
